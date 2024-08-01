@@ -161,15 +161,16 @@ Identifies and classifies named entities in text.
       "labels": ["person", "location", "organisation"]
   }
   response = requests.post(url, json=data)
-  
-  ### curl
-    curl -X POST "https://api.pindo.io/v1/transcription/ner" \
-         -H "Content-Type: application/json" \
-         -d '{
-            "text": "Yohani ukorera minisante atuye i musanze.",
-            "lang": "rw",
-            "labels": ["person", "location", "organisation"]
-          }'
+ ``` 
+### curl
+```script
+  curl -X POST "https://api.pindo.io/v1/transcription/ner" \
+       -H "Content-Type: application/json" \
+       -d '{
+          "text": "Yohani ukorera minisante atuye i musanze.",
+          "lang": "rw",
+          "labels": ["person", "location", "organisation"]
+        }'
 ```
 ### JavaScript
 ```javascript
