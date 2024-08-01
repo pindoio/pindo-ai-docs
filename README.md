@@ -34,7 +34,6 @@ Converts spoken language in an audio file into written text.
 
       # Send the POST request
       response = requests.post(url, files=files, data=data)
-      print(response.json())
 
 - **Example Response**:
   ```
@@ -68,7 +67,6 @@ Generates audio speech from text.
       "speech_rate": 1.0
   }
   response = requests.post(url, json=data)
-  print(response.json())
 
 - **Example Response**:
   ```
@@ -91,6 +89,7 @@ Identifies and classifies named entities in text.
 
 - **Example Request**:
   ```python
+  ### Python
   import requests
 
   url = "https://api.pindo.io/v1/transcription/ner"
@@ -100,7 +99,15 @@ Identifies and classifies named entities in text.
       "labels": ["person", "location", "organisation"]
   }
   response = requests.post(url, json=data)
-  print(response.json())
+  
+  ### curl
+    curl -X POST "https://api.pindo.io/v1/transcription/ner" \
+    -H "Content-Type: application/json" \
+    -d '{
+          "text": "Yohani ukorera minisante atuye i musanze.",
+          "lang": "rw",
+          "labels": ["person", "location", "organisation"]
+        }'
 
 - **Example Response**:
   ```
