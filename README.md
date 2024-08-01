@@ -132,6 +132,24 @@ Identifies and classifies named entities in text.
             "labels": ["person", "location", "organisation"]
           }'
 
+  ### JavaScript
+    const axios = require('axios');
+
+    const url = "https://api.pindo.io/v1/transcription/ner";
+    const data = {
+        text: "Yohani ukorera minisante atuye i musanze.",
+        lang: "rw",
+        labels: ["person", "location", "organisation"]
+    };
+
+    axios.post(url, data, {
+        headers: { 'Content-Type': 'application/json' }
+    }).then(response => {
+        console.log(response.data);
+    }).catch(error => {
+        console.error(error);
+    });
+
 - **Example Response**:
   ```
     {
