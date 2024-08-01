@@ -19,6 +19,7 @@ Converts spoken language in an audio file into written text.
 
 - **Example Request**:
   ```python
+  ### Python
   import requests
 
   url = "https://api.pindo.io/v1/transcription/stt"
@@ -34,6 +35,12 @@ Converts spoken language in an audio file into written text.
 
       # Send the POST request
       response = requests.post(url, files=files, data=data)
+
+  ### Curl
+  curl -X POST "https://api.pindo.io/v1/transcription/stt" \
+    -F "audio=@/path/to/your/file_name.mp3" \
+    -F "lang=rw"
+
 
 - **Example Response**:
   ```
@@ -58,6 +65,7 @@ Generates audio speech from text.
 
 - **Example Request**:
   ```python
+  ### Python
   import requests
 
   url = "https://api.pindo.io/v1/transcription/tts"
@@ -67,6 +75,15 @@ Generates audio speech from text.
       "speech_rate": 1.0
   }
   response = requests.post(url, json=data)
+  
+  ### curl
+  curl -X POST "https://api.pindo.io/v1/transcription/tts" \
+  -H "Content-Type: application/json" \
+  -d '{
+        "text": "Muraho neza!",
+        "lang": "rw",
+        "speech_rate": 1.0
+      }'
 
 - **Example Response**:
   ```
