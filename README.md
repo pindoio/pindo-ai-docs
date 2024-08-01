@@ -21,20 +21,30 @@ Converts spoken language in an audio file into written text.
   ```python
   ### Python
   import requests
+  from io import BytesIO
 
   url = "https://api.pindo.io/v1/transcription/stt"
   data = {
       "lang": "rw"
   }
 
-  # Open the audio file in binary mode
-  with open(path/file_name.mp3, 'rb') as audio_file:
-      files = {
-          'audio': (path/file_name.mp3, audio_file, audio_type(e.g: audio/m4a, audio/mp3)),
-      }
+  # Path to your audio file
+  # Supported audio formats
+  # "wav", "wave", "mp3", "ogg", "flac", "aac", "wma", "webm", "mp4", "m4a"
+  audio_path = "path/to/your/file.mp3"
 
-      # Send the POST request
-      response = requests.post(url, files=files, data=data)
+  # Read the audio file into BytesIO
+  with open(audio_path, 'rb') as audio_file:
+      audio_content = audio_file.read()
+
+  audio_file_io = BytesIO(audio_content)
+
+  files = {
+      'audio': ('file.mp3', audio_file_io, 'audio/mp3')  # Adjust MIME type if necessary
+  }
+
+  # Send the POST request
+  response = requests.post(url, files=files, data=data)
 
   ### Curl
   curl -X POST "https://api.pindo.io/v1/transcription/stt" \
