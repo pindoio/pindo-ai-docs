@@ -38,8 +38,8 @@ Converts spoken language in an audio file into written text.
 
   ### Curl
   curl -X POST "https://api.pindo.io/v1/transcription/stt" \
-    -F "audio=@/path/to/your/file_name.mp3" \
-    -F "lang=rw"
+       -F "audio=@/path/to/your/file_name.mp3" \
+       -F "lang=rw"
 
 
 - **Example Response**:
@@ -65,7 +65,7 @@ Generates audio speech from text.
 
 - **Example Request**:
   ```python
-  ### Python
+  ### python
   import requests
 
   url = "https://api.pindo.io/v1/transcription/tts"
@@ -78,12 +78,8 @@ Generates audio speech from text.
   
   ### curl
   curl -X POST "https://api.pindo.io/v1/transcription/tts" \
-  -H "Content-Type: application/json" \
-  -d '{
-        "text": "Muraho neza!",
-        "lang": "rw",
-        "speech_rate": 1.0
-      }'
+       -H "Content-Type: application/json" \
+       -d '{"text": "Muraho neza!", "lang": "rw", "speech_rate": 1.0}'
 
 - **Example Response**:
   ```
@@ -119,12 +115,12 @@ Identifies and classifies named entities in text.
   
   ### curl
     curl -X POST "https://api.pindo.io/v1/transcription/ner" \
-    -H "Content-Type: application/json" \
-    -d '{
-          "text": "Yohani ukorera minisante atuye i musanze.",
-          "lang": "rw",
-          "labels": ["person", "location", "organisation"]
-        }'
+         -H "Content-Type: application/json" \
+         -d '{
+            "text": "Yohani ukorera minisante atuye i musanze.",
+            "lang": "rw",
+            "labels": ["person", "location", "organisation"]
+          }'
 
 - **Example Response**:
   ```
