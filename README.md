@@ -119,7 +119,8 @@ Generates audio speech from text.
       speech_rate: 1.0
   };
 
-  axios.post(url, data, {headers: { 'Content-Type': 'application/json' }
+  axios.post(url, data, {
+      headers: { 'Content-Type': 'application/json' }
   }).then(response => {
       console.log(response.data);
   }).catch(error => {
