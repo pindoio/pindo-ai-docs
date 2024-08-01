@@ -18,8 +18,8 @@ Converts spoken language in an audio file into written text.
   - `lang`: The language of the audio. Supports values like "rw" (Kinyarwanda). (Optional)
 
 - **Example Request**:
+### Python
   ```python
-  ### Python
   import requests
   from io import BytesIO
 
@@ -45,13 +45,15 @@ Converts spoken language in an audio file into written text.
 
   # Send the POST request
   response = requests.post(url, files=files, data=data)
-
-  ### Curl
-  curl -X POST "https://api.pindo.io/v1/transcription/stt" \
-       -F "audio=@/path/to/your/file_name.mp3" \
-       -F "lang=rw"
-
-  ### JavaScript
+```
+### Curl
+```bash
+curl -X POST "https://api.pindo.io/v1/transcription/stt" \
+     -F "audio=@/path/to/your/file_name.mp3" \
+     -F "lang=rw"
+```
+### JavaScript
+```javascript
   const FormData = require('form-data');
   const fs = require('fs');
   const axios = require('axios');
@@ -68,15 +70,14 @@ Converts spoken language in an audio file into written text.
   }).catch(error => {
       console.error(error);
   });
-
-
+```
 - **Example Response**:
-  ```
-    {
-        "text": "...",
-        "uploaded_audio_url": "path/file_name.mp3"
-    }
-  ```
+```json
+  {
+      "text": "...",
+      "uploaded_audio_url": "path/file_name.mp3"
+  }
+```
 
 
 ### 2. Text-to-Speech (TTS)
@@ -92,8 +93,8 @@ Generates audio speech from text.
   - `speech_rate` (float, optional): Rate of speech, default is 1.0.
 
 - **Example Request**:
+ ### python
   ```python
-  ### python
   import requests
 
   url = "https://api.pindo.io/v1/transcription/tts"
@@ -103,13 +104,15 @@ Generates audio speech from text.
       "speech_rate": 1.0
   }
   response = requests.post(url, json=data)
-  
-  ### curl
+```
+### curl
+```script
   curl -X POST "https://api.pindo.io/v1/transcription/tts" \
        -H "Content-Type: application/json" \
        -d '{"text": "Muraho neza!", "lang": "rw", "speech_rate": 1.0}'
-
-  ### JavaScript
+```
+### JavaScript
+```javascript
   const axios = require('axios');
 
   const url = "https://api.pindo.io/v1/transcription/tts";
@@ -126,9 +129,9 @@ Generates audio speech from text.
   }).catch(error => {
       console.error(error);
   });
-
+```
 - **Example Response**:
-  ```
+  ```json
     {
         "generated_audio_url": "path/file_name.wav"
     }
@@ -147,8 +150,8 @@ Identifies and classifies named entities in text.
   - `labels` (list of strings, optional): Specific labels to search for.
 
 - **Example Request**:
+### Python
   ```python
-  ### Python
   import requests
 
   url = "https://api.pindo.io/v1/transcription/ner"
@@ -167,8 +170,9 @@ Identifies and classifies named entities in text.
             "lang": "rw",
             "labels": ["person", "location", "organisation"]
           }'
-
-  ### JavaScript
+```
+### JavaScript
+```javascript
     const axios = require('axios');
 
     const url = "https://api.pindo.io/v1/transcription/ner";
@@ -185,9 +189,9 @@ Identifies and classifies named entities in text.
     }).catch(error => {
         console.error(error);
     });
-
+```
 - **Example Response**:
-  ```
+  ```json
     {
         " location": [
             "musanze"
