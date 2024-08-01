@@ -91,6 +91,23 @@ Generates audio speech from text.
        -H "Content-Type: application/json" \
        -d '{"text": "Muraho neza!", "lang": "rw", "speech_rate": 1.0}'
 
+  ### JavaScript
+  const axios = require('axios');
+
+  const url = "https://api.pindo.io/v1/transcription/tts";
+  const data = {
+      text: "Muraho neza!",
+      lang: "rw",
+      speech_rate: 1.0
+  };
+
+  axios.post(url, data, {headers: { 'Content-Type': 'application/json' }
+  }).then(response => {
+      console.log(response.data);
+  }).catch(error => {
+      console.error(error);
+  });
+
 - **Example Response**:
   ```
     {
