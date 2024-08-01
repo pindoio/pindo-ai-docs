@@ -51,6 +51,24 @@ Converts spoken language in an audio file into written text.
        -F "audio=@/path/to/your/file_name.mp3" \
        -F "lang=rw"
 
+  ### JavaScript
+  const FormData = require('form-data');
+  const fs = require('fs');
+  const axios = require('axios');
+
+  const url = "https://api.pindo.io/v1/transcription/stt";
+  const form = new FormData();
+  form.append('audio', fs.createReadStream('path/to/your/file.mp3'));
+  form.append('lang', 'rw');
+
+  axios.post(url, form, {
+      headers: form.getHeaders()
+  }).then(response => {
+      console.log(response.data);
+  }).catch(error => {
+      console.error(error);
+  });
+
 
 - **Example Response**:
   ```
