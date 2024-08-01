@@ -201,3 +201,16 @@ Identifies and classifies named entities in text.
     }
   ```
 
+
+## Status Codes
+
+| Status Code | Description                                             |
+|--------------|---------------------------------------------------------|
+| `200`        | **OK**: The request was successful, and the response contains the requested data. |
+| `400`        | **Bad Request**: The request was invalid or malformed. This could be due to missing or incorrect parameters. |
+| `401`        | **Unauthorized**: Authentication credentials are missing or incorrect. |
+| `403`        | **Forbidden**: The user does not have permission to access the requested resource. |
+| `404`        | **Not Found**: The requested resource could not be found. |
+| `413`        | **Payload Too Large**: The uploaded audio file exceeds the allowed size limit. |
+| `429`        | **Too Many Requests**: Daily limit of AI model requests per IP address has been reached. |
+| `500`        | **Internal Server Error**: An unexpected error occurred on the server. |
