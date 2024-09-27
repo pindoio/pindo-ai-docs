@@ -5,20 +5,10 @@ This API provides endpoints for converting speech to text (STT), text to speech 
 - Ensure that the audio files and text inputs meet the required specifications as outlined in the schemas.
 - The service enforces rate limits per IP to prevent abuse.
 
-## Languages Supported
-
-The Pindo VoiceAI API currently supports three languages: Kinyarwanda, Kiswahili, and Luganda. These languages can be specified using their corresponding ISO 639-1 language codes in the API requests. The API expects the language code to be included as part of the request to identify the language of the audio file being processed.
-
-Here are the currently supported languages along with their respective ISO 639-1 codes:
-
-- Kinyarwanda: `"rw"`
-- Kiswahili: `"sw"`
-- Luganda: `"lg"`
-
 ## Endpoints
 
 ### 1. Speech-to-Text (STT)
-Converts spoken language in an audio file into written text. 
+Converts spoken language in an audio file into written text. The Pindo VoiceAI Speech-to-Text (STT) API currently supports three languages: Kinyarwanda, Kiswahili, and Luganda. These languages can be specified using their corresponding ISO 639-1 language codes in the API requests. The API expects the language code to be included as part of the request to identify the language of the audio file being processed.
 
 - **URL**: `/stt`
 - **Method**: `POST`
