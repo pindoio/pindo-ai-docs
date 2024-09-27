@@ -5,17 +5,27 @@ This API provides endpoints for converting speech to text (STT), text to speech 
 - Ensure that the audio files and text inputs meet the required specifications as outlined in the schemas.
 - The service enforces rate limits per IP to prevent abuse.
 
+## Languages Supported
+
+The Pindo VoiceAI API currently supports three languages: Kinyarwanda, Kiswahili, and Luganda. These languages can be specified using their corresponding ISO 639-1 language codes in the API requests. The API expects the language code to be included as part of the request to identify the language of the audio file being processed.
+
+Here are the currently supported languages along with their respective ISO 639-1 codes:
+
+- Kinyarwanda: `"rw"`
+- Kiswahili: `"sw"`
+- Luganda: `"lg"`
+
 ## Endpoints
 
 ### 1. Speech-to-Text (STT)
-Converts spoken language in an audio file into written text.
+Converts spoken language in an audio file into written text. 
 
 - **URL**: `/stt`
 - **Method**: `POST`
 - **Headers**: `Content-Type: multipart/form-data`
 - **Schema**:
-  - `audio`: The audio file to be transcribed. (Required)
-  - `lang`: The language of the audio. Supports values like "rw" (Kinyarwanda). (Optional)
+  - `audio` (string, required): The audio file to be transcribed. (Required)
+  - `lang` (string, optional): The language of the audio. Supports values like "rw" (Kinyarwanda). Defaults to "rw".
 
 - **Example Request**:
 ### Python
@@ -81,7 +91,8 @@ curl -X POST "https://api.pindo.io/v1/transcription/stt" \
 
 
 ### 2. Text-to-Speech (TTS)
-Generates audio speech from text.
+
+The Pindo VoiceAI API offers Text-to-Speech (TTS) capabilities, allowing you to generate high quality audio speech from text in supported languages. With TTS, you can input text, and the API will convert it into natural-sounding speech. The API currently supports Kinyarwanda only.
 
 - **Endpoint**: `/tts`
 - **Method**: `POST`
@@ -139,7 +150,8 @@ Generates audio speech from text.
 
 
 ### 3. Named Entity Recognition (NER)
-Identifies and classifies named entities in text.
+
+The Pindo VoiceAI API includes Named Entity Recognition (NER) functionality, which identifies and classifies named entities in text. NER allows you to automatically detect entities such as names of people, organizations, locations, dates, and other specific categories from textual data. The supported languages for NER are Kinyarwanda, and English.
 
 - **Endpoint**: `/ner`
 - **Method**: `POST`
@@ -147,7 +159,7 @@ Identifies and classifies named entities in text.
 - **Request Parameters**:
   - `text` (string, required): Text for entity extraction.
   - `lang` (string, required): Language of the text (e.g., "en" for English).
-  - `labels` (list of strings, optional): Specific labels to search for.
+  - `labels` (list of strings, optional): Specific labels to search for. You can specify one or more of an arbitrary list of entity keywords you want to extract from a given text. Some example of entities could be: "person", "location", "organisation", "date", "time", "money", "percent", "quantity", "ordinal", "cardinal". If no labels are specified, the API will default to `["person", "location", "organisation", "date"]`.
 
 - **Example Request**:
 ### Python
