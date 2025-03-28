@@ -23,7 +23,7 @@ Converts spoken language in an audio file into written text. The Pindo VoiceAI S
   import requests
   from io import BytesIO
 
-  url = "https://api.pindo.io/v1/transcription/stt"
+  url = "https://api.pindo.io/ai/stt/rw/public"
   data = {
       "lang": "rw"
   }
@@ -48,7 +48,7 @@ Converts spoken language in an audio file into written text. The Pindo VoiceAI S
 ```
 ### Curl
 ```bash
-curl -X POST "https://api.pindo.io/v1/transcription/stt" \
+curl -X POST "https://api.pindo.io/ai/stt/rw/public" \
      -F "audio=@/path/to/your/file_name.mp3" \
      -F "lang=rw"
 ```
@@ -58,7 +58,7 @@ curl -X POST "https://api.pindo.io/v1/transcription/stt" \
   const fs = require('fs');
   const axios = require('axios');
 
-  const url = "https://api.pindo.io/v1/transcription/stt";
+  const url = "https://api.pindo.io/ai/stt/rw/public";
   const form = new FormData();
   form.append('audio', fs.createReadStream('path/to/your/file.mp3'));
   form.append('lang', 'rw');
@@ -98,7 +98,7 @@ The Pindo VoiceAI API offers Text-to-Speech (TTS) capabilities, allowing you to 
   ```python
   import requests
 
-  url = "https://api.pindo.io/v1/transcription/tts"
+  url = "https://api.pindo.io/ai/tts/rw/public"
   data = {
       "text": "Muraho neza!",
       "lang": "rw",
@@ -108,7 +108,7 @@ The Pindo VoiceAI API offers Text-to-Speech (TTS) capabilities, allowing you to 
 ```
 ### curl
 ```script
-  curl -X POST "https://api.pindo.io/v1/transcription/tts" \
+  curl -X POST "https://api.pindo.io/ai/tts/rw/public" \
        -H "Content-Type: application/json" \
        -d '{"text": "Muraho neza!", "lang": "rw", "speech_rate": 1.0}'
 ```
@@ -116,7 +116,7 @@ The Pindo VoiceAI API offers Text-to-Speech (TTS) capabilities, allowing you to 
 ```javascript
   const axios = require('axios');
 
-  const url = "https://api.pindo.io/v1/transcription/tts";
+  const url = "https://api.pindo.io/ai/tts/rw/public";
   const data = {
       text: "Muraho neza!",
       lang: "rw",
@@ -156,7 +156,7 @@ The Pindo VoiceAI API includes Named Entity Recognition (NER) functionality, whi
   ```python
   import requests
 
-  url = "https://api.pindo.io/v1/transcription/ner"
+  url = "https://api.pindo.io/ai/ner/rw/public"
   data = {
       "text": "Yohani ukorera minisante atuye i musanze.",
       "lang": "rw",
@@ -166,7 +166,7 @@ The Pindo VoiceAI API includes Named Entity Recognition (NER) functionality, whi
  ``` 
 ### curl
 ```script
-  curl -X POST "https://api.pindo.io/v1/transcription/ner" \
+  curl -X POST "https://api.pindo.io/ai/ner/rw/public" \
        -H "Content-Type: application/json" \
        -d '{
           "text": "Yohani ukorera minisante atuye i musanze.",
@@ -178,7 +178,7 @@ The Pindo VoiceAI API includes Named Entity Recognition (NER) functionality, whi
 ```javascript
     const axios = require('axios');
 
-    const url = "https://api.pindo.io/v1/transcription/ner";
+    const url = "https://api.pindo.io/ai/ner/rw/public";
     const data = {
         text: "Yohani ukorera minisante atuye i musanze.",
         lang: "rw",
